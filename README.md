@@ -11,9 +11,10 @@ Doctor Consul Helper is a UI that allows you to quickly collect data from variou
 # Pre-Requirements
 
 * Windows (any version)
-* AutoHotKey must be installed on the Windows workstation. See [AHK](https://www.autohotkey.com/https:/)
+* [AutoHotKey](https://www.autohotkey.com/) must be installed on the Windows workstation.
 * vsc script placed in your executable path.
   * The script file is place in the root of this repo.
+* [Microsoft Visual Studio Code](https://code.visualstudio.com/download)
 
 # How to use Doctor Consul Helper
 
@@ -23,5 +24,18 @@ Doctor Consul establishes many forwarded ports into the local workstation that a
 * The helper UI is launched.
 * Clicking on one of the buttons results in the appropriate command being placed in the Window copy buffer.
 * Paste into the shell
+* The intended data is opened up directly in Microsoft Visual Studio Code.
 
 Additional troubleshooting commands will likely be added to the helper in the future.
+
+## vsc script
+
+The vsc script takes STDIN input, drops it into a temporary file, and opens up the file in Microsoft VSC.
+
+VSC is supposed to be able to open up STDIN directly, but it doesn't work correctly, and thus this script needed to be written. I don't recall the exact issues I ran into.
+
+Syntax
+
+> vsc *[file extension]*
+
+The file extension will allow vsc to use the correct syntax coloring.
