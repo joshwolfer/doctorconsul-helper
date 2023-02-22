@@ -6,11 +6,14 @@
 
 Gui, +AlwaysOnTop
 Gui, Color, 252730
-Gui, Show, x1200 w346 h410,Doctor Consul Helper
+Gui, Show, x1200 w565 h410,Doctor Consul Helper
 
 Gui, Font, s11 cFFFFFF w700, consolas
 
+; ------------------------------------------
 ; Envoy Cluster Config
+; ------------------------------------------
+
 Gui, Add, Text, x5 y5, Envoy Cluster Config
 Gui, Font, s11 cFFFFFF w400, consolas
 Gui, Add, Text, x5 y+10, `  Mesh Gateways     Applications
@@ -22,6 +25,7 @@ Gui, Add, Button, y+1 w138 h18 gcc_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gcc_dc2_chunky_mgw, DC2 MGW chunky
 
      ; Column 2
+
 Gui, Add, Button, x150 y52 w189 h18 gcc_unicorn_frontend, unicorn-frontend (DC1)
 Gui, Add, Button, x150 y+1 w181 h18 gcc_unicorn_backend_dc1, unicorn-backend (DC1)
 Gui, Add, Button, x150 y+1 w181 h18 gcc_unicorn_backend_dc2, unicorn-backend (DC2)
@@ -30,7 +34,25 @@ Gui, Add, Button, x150 y+25 w90 h18 gcc_web, web (DC1)
 Gui, Add, Button, x150 y+1 w163 h18 gcc_web_upstream, web-upstream (DC1)
 Gui, Add, Button, x150 y+1 w147 h18 gcc_web_chunky, web-chunky (DC2)
 
+     ; Column 3
+
+Gui, Font, s11 cFFFFFF w700, consolas
+Gui, Add, Text, x370 y5, Web Links
+Gui, Font, s11 cFFFFFF w400, consolas
+
+Gui, Add, Button, x370 y+28 w190 h18 Left gui_dc1, % " Consul UI (DC1)"
+Gui, Add, Button, x370 y+1 w190 h18 Left gui_dc2, % " Consul UI (DC2)"
+Gui, Add, Button, x370 y+1 w190 h18 Left gui_dc3, % " Consul UI (DC3) Kube"
+
+Gui, Add, Button, x370 y+25 w190 h18 Left gui_web, % " Web (DC1)"
+Gui, Add, Button, x370 y+1 w190 h18 Left gui_unicorn_frontend, % " Unicorn-frontend (DC1)"
+
+Gui, Add, Button, x370 y+25 w190 h18 Left gui_dc_github, % " Doctor Consul Github"
+
+; ------------------------------------------
 ; Envoy Config Dump
+; ------------------------------------------
+
 Gui, Font, s11 cFFFFFF w700, consolas
 Gui, Add, Text, x5 y220, Envoy Config Dump
 Gui, Font, s11 cFFFFFF w400, consolas
@@ -166,6 +188,34 @@ Return
 cd_dc2_chunky_mgw:
 clipboard := "curl -s localhost:19008/config_dump | vsc"
 return
+
+; UIs
+
+ui_dc1:
+clipboard := "http://127.0.0.1:8500/ui/"
+return
+
+ui_dc2:
+clipboard := "http://127.0.0.1:8501/ui/"
+return
+
+ui_dc3:
+clipboard := "http://127.0.0.1:8502/ui/"
+return
+
+
+ui_web:
+clipboard := "http://127.0.0.1:9000/ui/"
+return
+
+ui_unicorn_frontend:
+clipboard := "http://127.0.0.1:10000/ui/"
+return
+
+ui_dc_github:
+clipboard := "https://github.com/joshwolfer/doctorconsul"
+return
+
 
 ; ------------------------------------------
 ;               Gui Functions
