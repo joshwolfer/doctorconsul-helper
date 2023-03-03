@@ -102,7 +102,7 @@ clipboard := "curl -s localhost:19004/clusters | vsc"
 return
 
 cd_unicorn_frontend:
-clipboard := "curl -s localhost:19004/config_dump | vsc"
+clipboard := "curl -s localhost:19004/config_dump | vsc json"
 return
 
 cc_unicorn_backend_dc1:
@@ -110,7 +110,7 @@ clipboard := "curl -s localhost:19005/clusters | vsc"
 return
 
 cd_unicorn_backend_dc1:
-clipboard := "curl -s localhost:19005/config_dump | vsc"
+clipboard := "curl -s localhost:19005/config_dump | vsc json"
 return
 
 cc_unicorn_backend_dc2:
@@ -118,7 +118,7 @@ clipboard := "curl -s localhost:19011/clusters | vsc"
 return
 
 cd_unicorn_backend_dc2:
-clipboard := "curl -s localhost:19011/config_dump | vsc"
+clipboard := "curl -s localhost:19011/config_dump | vsc json"
 return
 
 cc_web:
@@ -126,7 +126,7 @@ clipboard := "curl -s localhost:19002/clusters | vsc"
 return
 
 cd_web:
-clipboard := "curl -s localhost:19002/config_dump | vsc"
+clipboard := "curl -s localhost:19002/config_dump | vsc json"
 return
 
 cc_web_upstream:
@@ -134,7 +134,7 @@ clipboard := "curl -s localhost:19003/clusters | vsc"
 return
 
 cd_web_upstream:
-clipboard := "curl -s localhost:19003/config_dump | vsc"
+clipboard := "curl -s localhost:19003/config_dump | vsc json"
 return
 
 cc_web_chunky:
@@ -142,7 +142,7 @@ clipboard := "curl -s localhost:19010/clusters | vsc"
 return
 
 cd_web_chunky:
-clipboard := "curl -s localhost:19010/config_dump | vsc"
+clipboard := "curl -s localhost:19010/config_dump | vsc json"
 return
 
 
@@ -154,7 +154,7 @@ clipboard := "curl -s localhost:19006/clusters | vsc"
 return
 
 cd_dc1_mgw:
-clipboard := "curl -s localhost:19006/config_dump | vsc"
+clipboard := "curl -s localhost:19006/config_dump | vsc json"
 return
 
 cc_dc1_mgw_unicorn:
@@ -162,7 +162,7 @@ clipboard := "curl -s localhost:19001/clusters | vsc"
 return
 
 cd_dc1_mgw_unicorn:
-clipboard := "curl -s localhost:19001/config_dump | vsc"
+clipboard := "curl -s localhost:19001/config_dump | vsc json"
 return
 
 cc_dc2_mgw:
@@ -170,7 +170,7 @@ clipboard := "curl -s localhost:19007/clusters | vsc"
 return
 
 cd_dc2_mgw:
-clipboard := "curl -s localhost:19007/config_dump | vsc"
+clipboard := "curl -s localhost:19007/config_dump | vsc json"
 return
 
 cc_dc2_unicorn_mgw:
@@ -178,7 +178,7 @@ clipboard := "curl -s localhost:19009/clusters | vsc"
 Return
 
 cd_dc2_unicorn_mgw:
-clipboard := "curl -s localhost:19009/config_dump | vsc"
+clipboard := "curl -s localhost:19009/config_dump | vsc json"
 return
 
 cc_dc2_chunky_mgw:
@@ -186,7 +186,7 @@ clipboard := "curl -s localhost:19008/clusters | vsc"
 Return
 
 cd_dc2_chunky_mgw:
-clipboard := "curl -s localhost:19008/config_dump | vsc"
+clipboard := "curl -s localhost:19008/config_dump | vsc json"
 return
 
 ; UIs
