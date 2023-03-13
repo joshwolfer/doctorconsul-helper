@@ -4,19 +4,21 @@
 ;               Gui Layout
 ; ------------------------------------------
 
+; Gui, Font, s11 cFFFFFF w700, consolas     ; bold
+
+
 Gui, +AlwaysOnTop
 Gui, Color, 252730
-Gui, Show, x1200 w565 h410,Doctor Consul Helper
+Gui, Show, x800 w965 h520,Doctor Consul Helper
 
-Gui, Font, s11 cFFFFFF w700, consolas
+Gui, Font, s11 cFFFFFF w400, consolas
 
 ; ------------------------------------------
 ; Envoy Cluster Config
 ; ------------------------------------------
 
-Gui, Add, Text, x5 y5, Envoy Cluster Config
-Gui, Font, s11 cFFFFFF w400, consolas
-Gui, Add, Text, x5 y+10, `  Mesh Gateways     Applications
+Gui, Add, Text, x5 y5, Envoy Cluster Cfg
+Gui, Font, s11 cFFFFFF w400, consolas              ; standard font
 Gui, Add, Button, y+1 w138 h18 gcc_dc1_mgw, DC1 MGW default
 Gui, Add, Button, y+1 w138 h18 gcc_dc1_mgw_unicorn, DC1 MGW unicorn
 
@@ -24,39 +26,22 @@ Gui, Add, Button, y+25 w138 h18 gcc_dc2_mgw, DC2 MGW default
 Gui, Add, Button, y+1 w138 h18 gcc_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gcc_dc2_chunky_mgw, DC2 MGW chunky
 
+Gui, Add, Button, y+25 w189 h18 gcc_unicorn_frontend, unicorn-frontend (DC1)
+Gui, Add, Button, y+1 w181 h18 gcc_unicorn_backend_dc1, unicorn-backend (DC1)
+Gui, Add, Button, y+1 w181 h18 gcc_unicorn_backend_dc2, unicorn-backend (DC2)
+
+Gui, Add, Button, y+25 w90 h18 gcc_web, web (DC1)
+Gui, Add, Button, y+1 w163 h18 gcc_web_upstream, web-upstream (DC1)
+Gui, Add, Button, y+1 w147 h18 gcc_web_chunky, web-chunky (DC2)
+
      ; Column 2
-
-Gui, Add, Button, x150 y52 w189 h18 gcc_unicorn_frontend, unicorn-frontend (DC1)
-Gui, Add, Button, x150 y+1 w181 h18 gcc_unicorn_backend_dc1, unicorn-backend (DC1)
-Gui, Add, Button, x150 y+1 w181 h18 gcc_unicorn_backend_dc2, unicorn-backend (DC2)
-
-Gui, Add, Button, x150 y+25 w90 h18 gcc_web, web (DC1)
-Gui, Add, Button, x150 y+1 w163 h18 gcc_web_upstream, web-upstream (DC1)
-Gui, Add, Button, x150 y+1 w147 h18 gcc_web_chunky, web-chunky (DC2)
-
-     ; Column 3
-
-Gui, Font, s11 cFFFFFF w700, consolas
-Gui, Add, Text, x370 y5, Web Links
-Gui, Font, s11 cFFFFFF w400, consolas
-
-Gui, Add, Button, x370 y+28 w190 h18 Left gui_dc1, % " Consul UI (DC1)"
-Gui, Add, Button, x370 y+1 w190 h18 Left gui_dc2, % " Consul UI (DC2)"
-Gui, Add, Button, x370 y+1 w190 h18 Left gui_dc3, % " Consul UI (DC3) Kube"
-
-Gui, Add, Button, x370 y+25 w190 h18 Left gui_web, % " Web (DC1)"
-Gui, Add, Button, x370 y+1 w190 h18 Left gui_unicorn_frontend, % " Unicorn-frontend (DC1)"
-
-Gui, Add, Button, x370 y+25 w190 h18 Left gui_dc_github, % " Doctor Consul Github"
 
 ; ------------------------------------------
 ; Envoy Config Dump
 ; ------------------------------------------
 
-Gui, Font, s11 cFFFFFF w700, consolas
-Gui, Add, Text, x5 y220, Envoy Config Dump
 Gui, Font, s11 cFFFFFF w400, consolas
-Gui, Add, Text, x5 y+10, `  Mesh Gateways     Applications
+Gui, Add, Text, x220 y5, Envoy Config Dump
 Gui, Add, Button, y+1 w138 h18 gcd_dc1_mgw, DC1 MGW default
 Gui, Add, Button, y+1 w138 h18 gcd_dc1_mgw_unicorn, DC1 MGW unicorn
 
@@ -64,14 +49,69 @@ Gui, Add, Button, y+25 w138 h18 gcd_dc2_mgw, DC2 MGW default
 Gui, Add, Button, y+1 w138 h18 gcd_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gcd_dc2_chunky_mgw, DC2 MGW chunky
 
-     ; Column 2
-Gui, Add, Button, x150 y267 w189 h18 gcd_unicorn_frontend, unicorn-frontend (DC1)
-Gui, Add, Button, x150 y+1 w181 h18 gcd_unicorn_backend_dc1, unicorn-backend (DC1)
-Gui, Add, Button, x150 y+1 w181 h18 gcd_unicorn_backend_dc2, unicorn-backend (DC2)
+Gui, Add, Button, y+25 w189 h18 gcd_unicorn_frontend, unicorn-frontend (DC1)
+Gui, Add, Button, y+1 w181 h18 gcd_unicorn_backend_dc1, unicorn-backend (DC1)
+Gui, Add, Button, y+1 w181 h18 gcd_unicorn_backend_dc2, unicorn-backend (DC2)
 
-Gui, Add, Button, x150 y+25 w90 h18 gcd_web, web (DC1)
-Gui, Add, Button, x150 y+1 w163 h18 gcd_web_upstream, web-upstream (DC1)
-Gui, Add, Button, x150 y+1 w147 h18 gcd_web_chunky, web-chunky (DC2)
+Gui, Add, Button, y+25 w90 h18 gcd_web, web (DC1)
+Gui, Add, Button, y+1 w163 h18 gcd_web_upstream, web-upstream (DC1)
+Gui, Add, Button, y+1 w147 h18 gcd_web_chunky, web-chunky (DC2)
+
+     ; Column 3
+
+; ------------------------------------------
+;  Exec
+; ------------------------------------------
+
+Gui, Font, s11 cFFFFFF w400, consolas
+
+Gui, Add, Text, x440 y5, Shell
+Gui, Add, Button, y+1 w138 h18 gshell_server_dc1, DC1 Server
+Gui, Add, Button, y+1 w138 h18 gshell_server_dc2, DC2 Server
+
+Gui, Add, Button, y+25 w138 h18 gshell_dc1_mgw, DC1 MGW default
+Gui, Add, Button, y+1 w138 h18 gshell_dc1_mgw_unicorn, DC1 MGW unicorn
+Gui, Add, Button, y+1 w138 h18 gshell_dc2_mgw, DC2 MGW default
+Gui, Add, Button, y+1 w138 h18 gshell_dc2_unicorn_mgw, DC2 MGW unicorn
+Gui, Add, Button, y+1 w130 h18 gshell_dc2_chunky_mgw, DC2 MGW chunky
+
+Gui, Add, Button, y+25 w142 h18 gshell_dc1_client_alpha, DC1 Client Alpha
+Gui, Add, Button, y+1 w160 h18 gshell_dc1_client_charlie, DC1 Client charlie
+Gui, Add, Button, y+1 w160 h18 gshell_dc1_client_unicorn, DC1 Client unicorn
+Gui, Add, Button, y+1 w138 h18 gshell_dc1_client_echo_proj1, DC1 Client echo
+Gui, Add, Button, y+1 w142 h18 gshell_dc2_client_bravo, DC2 Client bravo
+Gui, Add, Button, y+1 w160 h18 gshell_dc2_client_foxtrot, DC2 Client foxtrot
+Gui, Add, Button, y+1 w160 h18 gshell_dc2_client_unicorn, DC2 Client unicorn
+
+Gui, Add, Button, y+25 w189 h18 gshell_unicorn_frontend_dc1, unicorn-frontend (DC1)
+Gui, Add, Button, y+1 w181 h18 gshell_unicorn_backend_dc1, unicorn-backend (DC1)
+Gui, Add, Button, y+1 w181 h18 gshell_unicorn_backend_dc2, unicorn-backend (DC2)
+
+Gui, Add, Button, y+25 w90 h18 gshell_web, web (DC1)
+Gui, Add, Button, y+1 w163 h18 gshell_web_upstream, web-upstream (DC1)
+Gui, Add, Button, y+1 w147 h18 gshell_web_chunky, web-chunky (DC2)
+
+
+
+     ; Column 4
+
+; ------------------------------------------
+; Links
+; ------------------------------------------
+
+Gui, Font, s11 cFFFFFF w400, consolas
+Gui, Add, Text, x730 y5, Web Links
+
+Gui, Add, Button, y+28 w190 h18 Left gui_dc1, % " Consul UI (DC1)"
+Gui, Add, Button, y+1 w190 h18 Left gui_dc2, % " Consul UI (DC2)"
+Gui, Add, Button, y+1 w190 h18 Left gui_dc3, % " Consul UI (DC3) Kube"
+
+Gui, Add, Button, y+25 w190 h18 Left gui_web, % " Web (DC1)"
+Gui, Add, Button, y+1 w190 h18 Left gui_unicorn_frontend, % " Unicorn-frontend (DC1)"
+
+Gui, Add, Button, y+25 w190 h18 Left gui_dc_github, % " Doctor Consul Github"
+
+
 
 
 return
@@ -215,6 +255,99 @@ return
 ui_dc_github:
 clipboard := "https://github.com/joshwolfer/doctorconsul"
 return
+
+; ------------------------------------------
+;             Shell Functions
+; ------------------------------------------
+
+shell_server_dc1:
+clipboard := "docker exec -i -t consul-server1-dc1 /bin/sh"
+return
+
+shell_server_dc2:
+clipboard := "docker exec -i -t consul-server1-dc2 /bin/sh"
+return
+
+; ------------------------------------------
+
+
+shell_dc1_mgw:
+clipboard := "docker exec -i -t gateway-dc1 /bin/sh"
+return
+
+shell_dc1_mgw_unicorn:
+clipboard := "docker exec -i -t gateway-dc1-unicorn /bin/sh"
+return
+
+shell_dc2_mgw:
+clipboard := "docker exec -i -t gateway-dc2 /bin/sh"
+return
+
+shell_dc2_unicorn_mgw:
+clipboard := "docker exec -i -t gateway-dc2-unicorn /bin/sh"
+Return
+
+shell_dc2_chunky_mgw:
+clipboard := "docker exec -i -t gateway-dc2-chunky /bin/sh"
+Return
+
+; ------------------------------------------
+
+
+shell_dc1_client_alpha:
+clipboard := "docker exec -i -t consul-client-dc1-alpha /bin/sh"
+return
+
+shell_dc1_client_charlie:
+clipboard := "docker exec -i -t consul-client-dc1-charlie-ap1 /bin/sh"
+return
+
+shell_dc1_client_unicorn:
+clipboard := "docker exec -i -t consul-client-dc1-unicorn /bin/sh"
+return
+
+shell_dc1_client_echo_proj1:
+clipboard := "docker exec -i -t consul-client-dc1-echo-proj1 /bin/sh"
+return
+
+shell_dc2_client_bravo:
+clipboard := "docker exec -i -t consul-client-dc2-bravo /bin/sh"
+return
+
+shell_dc2_client_foxtrot:
+clipboard := "docker exec -i -t consul-client-dc2-foxtrot /bin/sh"
+return
+
+shell_dc2_client_unicorn:
+clipboard := "docker exec -i -t consul-client-dc2-unicorn /bin/sh"
+return
+
+; ------------------------------------------
+
+shell_unicorn_frontend_dc1:
+clipboard := "docker exec -i -t unicorn-frontend-dc1 /bin/sh"
+return
+
+shell_unicorn_backend_dc1:
+clipboard := "docker exec -i -t unicorn-backend-dc1 /bin/sh"
+return
+
+shell_unicorn_backend_dc2:
+clipboard := "docker exec -i -t unicorn-backend-dc2 /bin/sh"
+return
+
+shell_web:
+clipboard := "docker exec -i -t web /bin/sh"
+return
+
+shell_web_upstream:
+clipboard := "docker exec -i -t web-upstream /bin/sh"
+return
+
+shell_web_chunky:
+clipboard := "docker exec -i -t web-chunky /bin/sh"
+return
+
 
 
 ; ------------------------------------------
