@@ -112,6 +112,7 @@ Gui, Add, Button, y+1 w190 h18 Left gui_dc3, % " Consul UI (DC3) Kube"
 
 Gui, Add, Button, y+25 w190 h18 Left gui_web, % " Web (DC1)"
 Gui, Add, Button, y+1 w190 h18 Left gui_unicorn_frontend, % " Unicorn-frontend (DC1)"
+Gui, Add, Button, y+1 w190 h18 Left gui_unicorn_frontend_dc3, % " Unicorn-frontend (DC3)"
 
 Gui, Add, Button, y+25 w190 h18 Left gui_dc_github, % " Doctor Consul Github"
 
@@ -266,6 +267,10 @@ return
 
 ui_unicorn_frontend:
 clipboard := "http://127.0.0.1:10000/ui/"
+return
+
+ui_unicorn_frontend_dc3:
+clipboard := "http://127.0.0.1:11000/ui/"
 return
 
 ui_dc_github:
