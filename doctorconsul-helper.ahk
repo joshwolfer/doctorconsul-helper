@@ -303,7 +303,7 @@ shell_server_dc2:
 clipboard := "docker exec -i -t consul-server1-dc2 /bin/sh"
 return
 
-; ------------------------------------------
+; -----------
 
 
 shell_dc1_mgw:
@@ -311,7 +311,7 @@ clipboard := "docker exec -i -t gateway-dc1 /bin/sh"
 return
 
 shell_dc3_mgw:
-clipboard := "consul-k8s proxy list -n consul | grep mesh-gateway | cut -f1 | tr -d ' ' | xargs -I {} kubectl debug {} -nconsul -it --image alpine"
+clipboard := "consul-k8s proxy list -n consul | grep mesh-gateway | cut -f1 | tr -d ' ' | xargs -o -I {} kubectl debug {} -nconsul -it --image alpine"
 return
 
 shell_dc1_mgw_unicorn:
