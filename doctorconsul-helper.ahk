@@ -7,9 +7,9 @@
 ; Gui, Font, s11 cFFFFFF w700, consolas     ; bold
 
 
-Gui, +AlwaysOnTop
+; Gui, +AlwaysOnTop
 Gui, Color, 252730
-Gui, Show, x800 w965 h520,Doctor Consul Helper
+Gui, Show, x800 w965 h580,Doctor Consul Helper
 
 Gui, Font, s11 cFFFFFF w400, consolas
 
@@ -25,6 +25,8 @@ Gui, Add, Button, y+1 w138 h18 gcc_dc1_mgw_unicorn, DC1 MGW unicorn
 Gui, Add, Button, y+25 w138 h18 gcc_dc2_mgw, DC2 MGW default
 Gui, Add, Button, y+1 w138 h18 gcc_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gcc_dc2_chunky_mgw, DC2 MGW chunky
+
+Gui, Add, Button, y+25 w138 h18 gcc_dc3_mgw, DC3 MGW default
 
 Gui, Add, Button, y+25 w189 h18 gcc_unicorn_frontend, unicorn-frontend (DC1)
 Gui, Add, Button, y+1 w189 h18 gcc_unicorn_frontend_dc3, unicorn-frontend (DC3)
@@ -51,6 +53,8 @@ Gui, Add, Button, y+25 w138 h18 gcd_dc2_mgw, DC2 MGW default
 Gui, Add, Button, y+1 w138 h18 gcd_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gcd_dc2_chunky_mgw, DC2 MGW chunky
 
+Gui, Add, Button, y+25 w138 h18 gcd_dc3_mgw, DC3 MGW default
+
 Gui, Add, Button, y+25 w189 h18 gcd_unicorn_frontend, unicorn-frontend (DC1)
 Gui, Add, Button, y+1 w189 h18 gcd_unicorn_frontend_dc3, unicorn-frontend (DC3)
 Gui, Add, Button, y+1 w181 h18 gcd_unicorn_backend_dc1, unicorn-backend (DC1)
@@ -64,7 +68,7 @@ Gui, Add, Button, y+1 w147 h18 gcd_web_chunky, web-chunky (DC2)
      ; Column 3
 
 ; ------------------------------------------
-;  Exec
+;  Shell
 ; ------------------------------------------
 
 Gui, Font, s11 cFFFFFF w400, consolas
@@ -78,6 +82,8 @@ Gui, Add, Button, y+1 w138 h18 gshell_dc1_mgw_unicorn, DC1 MGW unicorn
 Gui, Add, Button, y+1 w138 h18 gshell_dc2_mgw, DC2 MGW default
 Gui, Add, Button, y+1 w138 h18 gshell_dc2_unicorn_mgw, DC2 MGW unicorn
 Gui, Add, Button, y+1 w130 h18 gshell_dc2_chunky_mgw, DC2 MGW chunky
+
+Gui, Add, Button, y+25 w138 h18 gshell_dc3_mgw, DC3 MGW default
 
 Gui, Add, Button, y+25 w142 h18 gshell_dc1_client_alpha, DC1 Client Alpha
 Gui, Add, Button, y+1 w160 h18 gshell_dc1_client_charlie, DC1 Client charlie
@@ -184,6 +190,10 @@ cc_dc2_mgw:
 clipboard := "curl -s localhost:19007/clusters | vsc"
 return
 
+cc_dc3_mgw:
+clipboard := "consul-k8s proxy list -n consul | grep mesh-gateway | cut -f1 | tr -d ' ' | xargs -I {} kubectl debug {} -nconsul -it --image alpine -- wget -q -O - 127.0.0.1:19000/clusters | vsc"
+return
+
 cc_dc2_unicorn_mgw:
 clipboard := "curl -s localhost:19009/clusters | vsc"
 Return
@@ -200,6 +210,10 @@ return
 
 cd_dc1_mgw_unicorn:
 clipboard := "curl -s localhost:19001/config_dump | vsc json"
+return
+
+cd_dc3_mgw:
+clipboard := "consul-k8s proxy list -n consul | grep mesh-gateway | cut -f1 | tr -d ' ' | xargs -I {} kubectl debug {} -nconsul -it --image alpine -- wget -q -O - 127.0.0.1:19000/config_dump | vsc json"
 return
 
 cd_dc2_mgw:
@@ -294,6 +308,10 @@ return
 
 shell_dc1_mgw:
 clipboard := "docker exec -i -t gateway-dc1 /bin/sh"
+return
+
+shell_dc3_mgw:
+clipboard := "consul-k8s proxy list -n consul | grep mesh-gateway | cut -f1 | tr -d ' ' | xargs -I {} kubectl debug {} -nconsul -it --image alpine"
 return
 
 shell_dc1_mgw_unicorn:
